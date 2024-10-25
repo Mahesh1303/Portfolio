@@ -1,4 +1,3 @@
-import React from "react";
 import SocialIcons from "@/Components/PgComponets/Dockcomp"; // Make sure this path matches your actual file structure
 
 export default function About() {

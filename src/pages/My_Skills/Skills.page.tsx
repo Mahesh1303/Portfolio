@@ -1,5 +1,4 @@
 import React from "react";
-import { useTheme } from "next-themes";
 import { MagicCard } from "@/Components/ui/magic-card";
 import { Code, Database, Globe, Layout, Cpu, Server } from "lucide-react";
 import IconCloud from "@/Components/ui/icon-cloud";
@@ -104,7 +103,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ icon: Icon, title, skills, color 
 
 // Skills Page Component
 const Myskills = () => {
-  const { theme } = useTheme();
 
   const slugs = [
     "javascript", "java", "react", "android",

@@ -1,5 +1,3 @@
-import { section } from "framer-motion/client";
-import React from "react";
 
 export function MyContact() {
   return (

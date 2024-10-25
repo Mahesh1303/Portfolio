@@ -1,4 +1,3 @@
- import React from 'react'
  import Header from './pages/Header/Header'
  import About from './pages/About/About'
 import Myskills from './pages/My_Skills/Skills.page'
