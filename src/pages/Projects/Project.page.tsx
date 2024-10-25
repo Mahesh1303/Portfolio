@@ -1,9 +1,6 @@
-import React, { useState, FC } from 'react';
-
+import React, { useState } from 'react';
 import Marquee from '@/Components/ui/marquee';
 import DialogBox from '@/Components/PgComponets/DialogBox'; 
-
-// Ensure this path is correct
 
 interface Logo {
   name: string;
@@ -111,7 +108,7 @@ const MyProjects: React.FC = () => {
         {/* Dialog Box for project details */}
         {currentProject && <DialogBox project={currentProject} onClose={closeModal} />}
       </div>
-      <div className="hidden md:block h-1 w-2/3 bg-amber-400  mb-4 rounded-lg mb-40"></div>
+      <div className="hidden md:block h-1 w-2/3 bg-amber-400 mb-4 rounded-lg mb-40"></div>
     </div>
   );
 };

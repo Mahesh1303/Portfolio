@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Header() {
   return (
     <nav className="flex flex-col sm:flex-row justify-between items-center py-4 px-6 m-4 bg-gradient-to-r from-amber-500 to-amber-300 shadow-lg rounded-lg transition-all duration-300 hover:shadow-xl">
