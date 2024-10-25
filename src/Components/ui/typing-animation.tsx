@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from "react";
 
-const TypingAnimation = ({ text, duration, className }) => {
+import  { useEffect, useState } from 'react';
+
+interface TypingAnimationProps {
+  text: string;
+  duration: number;
+  className?: string;
+}
+
+const TypingAnimation = ({ text, duration, className }: TypingAnimationProps) => {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
-    let timer;
+    let timer: NodeJS.Timeout;
 
-    const typeText = (index) => {
+    interface TypeTextFunction {
+      (index: number): void;
+    }
+
+    const typeText: TypeTextFunction = (index) => {
       if (index < text.length) {
         setDisplayedText((prev) => prev + text[index]);
         timer = setTimeout(() => typeText(index + 1), duration);
