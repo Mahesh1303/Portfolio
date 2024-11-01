@@ -2,6 +2,8 @@
 export function MyContact() {
   return (
     <section id='contact'>
+    <div className="hidden md:block h-1 w-3/4 bg-amber-400 mt-4 mb-48 rounded-lg"></div>
+
     <h2 className="text-5xl font-extrabold text-amber-500 mb-4 -mt-10 text-center">Contact Me</h2>
       <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
         <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
