@@ -39,7 +39,7 @@ const DialogBox: React.FC<DialogBoxProps> = ({ project, onClose }) => {
         <div className="h-48 w-full overflow-hidden mb-6">
           <Marquee singleItem={true}>
             {project.logos.map((logo, idx) => (
-              <img key={idx} src={logo.img} alt={logo.name} className="h-40 w-40 mx-auto" />
+              <img key={idx} src={logo.img} alt={logo.name} className="h-48 w-64 mx-auto" />
             ))}
           </Marquee>
         </div>

@@ -105,10 +105,10 @@ const SkillCard: React.FC<SkillCardProps> = ({ icon: Icon, title, skills, color 
 const Myskills = () => {
 
   const slugs = [
-    "javascript", "java", "react", "android",
-    "html5", "css3", "nextdotjs", "postgresql",
-    "vercel", "jest", "git", "github", "gitlab",
-    "visualstudiocode", "figma", "tailwindcss", "python",
+    "javascript", "java", "react", "mongodb",
+    "html5", "css3", "postgresql",
+    "vercel", "git", "github", "docker",
+    "visualstudiocode", "figma", "tailwind", "python",
   ];
 
   return (

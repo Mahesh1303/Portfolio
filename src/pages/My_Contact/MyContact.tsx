@@ -25,13 +25,16 @@ export function MyContact() {
                     strokeWidth="1.5"
                     className="w-8 h-8 text-gray-500"
                   >
-                    <path d="M22.46 6c-1.48.66-3.06 1.1-4.74 1.3a8.32 8.32 0 003.65-4.6c-1.6.94-3.36 1.62-5.22 2a4.14 4.14 0 00-7.05 3.76C7.69 8.16 4.07 6.12 1.64 3.16c-1.05 1.8-.52 4.19 1.13 5.39A4.1 4.1 0 01.64 8.6c0 .05 0 .1.01.15 0 2.04 1.46 3.75 3.42 4.15-.65.17-1.33.17-2 0 .5 1.55 1.96 2.68 3.68 2.72-1.35 1.06-3.06 1.68-4.88 1.68-.32 0-.65-.02-.96-.06C4.41 19.14 7.65 21 11.14 21c7.63 0 11.77-6.3 11.77-11.75 0-.18 0-.35-.01-.52A8.34 8.34 0 0022.46 6z" />
+                  <path
+                  fill="currentColor"
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
                   </svg>
                   <a
-                    href="https://x.com/yourprofile"
+                    href="http://x.com/Mahesh1561332"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-4 text-md tracking-wide font-semibold w-40"
+                    className="ml-4 text-md tracking-wide font-semibold w-40 hover:text-blue-500"
                   >
                     X 
                   </a>
@@ -46,13 +49,16 @@ export function MyContact() {
                     strokeWidth="1.5"
                     className="w-8 h-8 text-gray-500"
                   >
-                    <path d="M12 2.25c-5.3 0-9.75 4.45-9.75 9.75S6.7 21 12 21s9.75-4.45 9.75-9.75S17.3 2.25 12 2.25zm-2.5 14.5h-2v-8h2v8zm-1-9.25c-.688 0-1.25-.56-1.25-1.25s.562-1.25 1.25-1.25 1.25.56 1.25 1.25-.562 1.25-1.25 1.25zM19.25 17.5h-2v-4.25c0-1.063-.375-1.75-1.25-1.75-.688 0-1.062.438-1.25.875-.062.125-.062.25-.062.375v5.25h-2v-8h2v1.125c.25-.438.875-1.125 2-1.125 1.25 0 2.25.875 2.25 2.5v5.5z" />
+                  <path
+                  fill="currentColor"
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
                   </svg>
                   <a
                     href="https://www.linkedin.com/in/yourprofile"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-4 text-md tracking-wide font-semibold w-40"
+                    className="ml-4 text-md tracking-wide font-semibold w-40 hover:text-blue-500"
                   >
                     LinkedIn
                   </a>
@@ -74,7 +80,7 @@ export function MyContact() {
                   </svg>
                   <a
                     href="mailto:maheshddivate@gmail.com"
-                    className="ml-4 text-md tracking-wide font-semibold w-40"
+                    className="ml-4 text-md tracking-wide font-semibold w-40 hover:text-blue-500"
                   >
                     Email
                   </a>
