@@ -1,4 +1,3 @@
-import React from "react";
 import { MagicCard } from "@/Components/ui/magic-card";
 import { Code, Database, Globe, Layout, Cpu, Server } from "lucide-react";
 import IconCloud from "@/Components/ui/icon-cloud";
@@ -69,7 +68,18 @@ const skillsData = [
 ];
 
 // Skill Card Component
-const SkillCard = ({ icon: Icon, title, skills, color }) => (
+interface SkillCardProps {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  skills: string[];
+  color: {
+    light: string;
+    text: string;
+    bar: string;
+  };
+}
+
+const SkillCard = ({ icon: Icon, title, skills, color }: SkillCardProps) => (
   <MagicCard
     className="flex flex-col p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 bg-white"
     gradientColor="#f0f9ff"
