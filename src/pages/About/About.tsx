@@ -43,7 +43,7 @@ export default function About() {
           <div className="flex-1 flex justify-center items-center p-4 z-10 mb-">
             <div className="relative w-80 h-80 md:w-96 md:h-96 transition-transform duration-300 hover:scale-110">
               <img
-                src="/public/Profile.png"
+                src="/Profile.png"
                 alt="Mahesh Divate"
                 className="object-cover w-full h-full rounded-full shadow-lg border-4 border-white transition duration-300 hover:shadow-2xl"
               />

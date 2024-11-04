@@ -20,9 +20,9 @@ const projectData: Project[] = [
     title: "Gym Fit",
     description: "An innovative approach to Project One, highlighting key technologies and benefits.",
     logos: [
-      { name: "Microsoft", img: "/public/gym1.png" },
-      { name: "Apple", img: "/public/gym2.png" },
-      { name: "Apple", img: "/public/gym3.png" },
+      { name: "Microsoft", img: "/gym1.png" },
+      { name: "Apple", img: "/gym2.png" },
+      { name: "Apple", img: "/gym3.png" },
     ],
     githubUrl: "#",
     liveUrl: "#",
