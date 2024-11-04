@@ -69,18 +69,7 @@ const skillsData = [
 ];
 
 // Skill Card Component
-interface SkillCardProps {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  title: string;
-  skills: string[];
-  color: {
-    light: string;
-    text: string;
-    bar: string;
-  };
-}
-
-const SkillCard: React.FC<SkillCardProps> = ({ icon: Icon, title, skills, color }) => (
+const SkillCard = ({ icon: Icon, title, skills, color }) => (
   <MagicCard
     className="flex flex-col p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 bg-white"
     gradientColor="#f0f9ff"
@@ -103,7 +92,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ icon: Icon, title, skills, color 
 
 // Skills Page Component
 const Myskills = () => {
-
   const slugs = [
     "javascript", "java", "react", "mongodb",
     "html5", "css3", "postgresql",
@@ -112,35 +100,25 @@ const Myskills = () => {
   ];
 
   return (
-    <section id="skills" className="py-5">
+    <section id="skills" className="py-10 bg-gray-50">
       <h2 className="text-5xl font-extrabold text-amber-500 mb-8 text-center">My Skills</h2>
-      <div className="min-h-screen bg-white flex items-center justify-center pt-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-3 gap-8 max-w-5xl w-full px-4">
-          {/* Centered About Me Section */}
-          <IconCloud iconSlugs={slugs} />
+      
+      {/* Centered About Me Section */}
+      <div className="flex justify-center mb-10">
+        <IconCloud iconSlugs={slugs} />
+      </div>
+      
+      <div className="min-h-screen flex items-center justify-center pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full px-4">
+          {/* Skill Cards Below Icon Cloud */}
+          {skillsData.map((skill, index) => (
+            <div key={index} className="flex justify-center">
+              <SkillCard {...skill} />
+            </div>
+          ))}
 
-          {/* Skill Cards Surrounding the Center */}
-          <div className="flex justify-center h-72">
-            <SkillCard {...skillsData[0]} />
-          </div>
-          <div className="flex justify-center h-72">
-            <SkillCard {...skillsData[1]} />
-          </div>
-          <div className="flex justify-center h-72">
-            <SkillCard {...skillsData[2]} />
-          </div>
-          <div className="flex justify-center h-72">
-            <SkillCard {...skillsData[3]} />
-          </div>
-          <div className="flex justify-center h-72">
-            <SkillCard {...skillsData[4]} />
-          </div>
-          <div className="flex justify-center h-72">
-            <SkillCard {...skillsData[5]} />
-          </div>
-
-          {/* Open Source Contribution Message on the Left Side */}
-          <div className="col-span-1 md:col-span-2 flex mt-20 justify-center pt-6">
+          {/* Open Source Contribution Message */}
+          <div className="col-span-1 md:col-span-2 flex justify-center mt-20">
             <TypingAnimation
               className="text-gray-600"
               text="Also Learning to Contribute Through Open-Source!"
@@ -149,7 +127,7 @@ const Myskills = () => {
           </div>
         </div>
       </div>
-      <div className="hidden md:block h-1 w-2/3 bg-amber-400  mb-4 rounded-lg mt-28"></div>
+      <div className="hidden md:block h-1 w-2/3 bg-amber-400 mb-4 rounded-lg mt-28 mx-auto"></div>
     </section>
   );
 };
