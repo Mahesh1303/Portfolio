@@ -7,14 +7,14 @@ import Education from "./pages/Education/Education";
 
 export function App() {
   return (
-    <>
+    <div className="bg-gray-900" >
       <Header />
       <About />
       <Myskills />
       <Myprojects />
       <Education/>
       <MyContact />
-    </>
+    </div>
   );
 }
 

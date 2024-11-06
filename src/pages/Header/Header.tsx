@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <nav className="flex flex-col sm:flex-row justify-between items-center py-4 px-6 m-4 bg-gradient-to-r from-amber-500 to-amber-300 shadow-lg rounded-lg transition-all duration-300 hover:shadow-xl">
+    <nav className="fixed top-0 left-0 right-0 z-30 flex flex-col sm:flex-row justify-between items-center p-6  bg-amber-500 rounded-full shadow-lg  transition-all duration-300 hover:shadow-xl">
       <div className="flex flex-col sm:flex-row sm:space-x-8 sm:mb-0">
         <a 
           href="#about" 

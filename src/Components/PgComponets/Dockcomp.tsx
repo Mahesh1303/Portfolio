@@ -2,7 +2,7 @@ const socialLinks: Record<string, string> = {
   linkedIn: "http://linkedin.com/in/mahesh-divate",
   twitter: "http://x.com/Mahesh1561332",
   instagram: "https://www.instagram.com/_maheshdivate_/profilecard/?igsh=Y2tzaHBudjl6bGQ=",
-  github: "https://github.com/your-profile",
+  github: "https://github.com/Mahesh1303",
   whatsapp: "https://api.whatsapp.com/send?phone=917840900989",
 };
 

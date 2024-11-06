@@ -81,16 +81,16 @@ interface SkillCardProps {
 
 const SkillCard = ({ icon: Icon, title, skills, color }: SkillCardProps) => (
   <MagicCard
-    className="flex flex-col p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 bg-white"
-    gradientColor="#f0f9ff"
+    className="flex flex-col p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 bg-gray-800"
+    gradientColor="#1f2937"
   >
     <div className="flex items-center mb-4">
       <div className={`p-3 rounded-full ${color.light}`}>
         <Icon className={`w-10 h-10 ${color.text}`} />
       </div>
-      <h3 className="text-xl font-semibold text-gray-800 ml-4">{title}</h3>
+      <h3 className="text-xl font-semibold text-gray-200 ml-4">{title}</h3>
     </div>
-    <ul className="text-sm text-gray-600 space-y-1">
+    <ul className="text-sm text-gray-400 space-y-1">
       {skills.map((skill, index) => (
         <li key={index} className="list-disc pl-5">
           {skill}
@@ -110,11 +110,11 @@ const Myskills = () => {
   ];
 
   return (
-    <section id="skills" className="py-10 bg-gray-50">
+    <section id="skills" className="py-10 bg-gray-900">
       <h2 className="text-5xl font-extrabold text-amber-500 mb-8 text-center">My Skills</h2>
       
       {/* Centered About Me Section */}
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-4 h-1/4 w-1/4 mx-auto">
         <IconCloud iconSlugs={slugs} />
       </div>
       
@@ -130,7 +130,7 @@ const Myskills = () => {
           {/* Open Source Contribution Message */}
           <div className="col-span-1 md:col-span-2 flex justify-center mt-20">
             <TypingAnimation
-              className="text-gray-600"
+              className="text-gray-300"
               text="Also Learning to Contribute Through Open-Source!"
               duration={90}
             />
