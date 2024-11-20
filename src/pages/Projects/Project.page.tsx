@@ -74,16 +74,15 @@ const MyProjects: React.FC = () => {
 
         <div className="w-full rounded-lg p-8 mb-8 bg-gray-900">
           <div className="mb-4">
-            <h2 className="text-3xl font-semibold text-blue-600"></h2>
             <p className="text-gray-600 mt-2">Explore the following projects I built </p>
           </div>
 
-          {/* Adjusted container for better responsiveness on mobile */}
-          <div className="flex overflow-x-auto space-x-4 sm:space-x-6 md:space-x-8 py-4 snap-x snap-mandatory w-full max-w-full mx-auto">
+          {/* Container for Horizontal Scroll */}
+          <div className="overflow-x-auto py-4 scroll-smooth snap-x snap-mandatory w-full flex space-x-6 xl:space-x-8 mx-auto">
             {projectData.map((project, index) => (
               <div 
                 key={index} 
-                className="flex-none w-[80%] sm:w-[90%] md:w-80 lg:w-96 border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-300 hover:scale-105 snap-center cursor-pointer"
+                className="flex-none w-72 sm:w-80 md:w-96 lg:w-[320px] xl:w-[400px] 2xl:w-[480px] border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-500 hover:scale-105 snap-center cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="flex flex-col items-center justify-center h-full p-4">
