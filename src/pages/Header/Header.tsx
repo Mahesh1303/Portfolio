@@ -1,5 +1,4 @@
 import  { useState } from 'react';
-import { HashRouter as Router, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
@@ -9,93 +8,114 @@ export default function Header() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const closeSidebar = () => {
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Close sidebar
     setIsSidebarOpen(false);
+    
+    // Get the href and scroll to the section
+    const targetId = (e.target as HTMLAnchorElement).getAttribute('href');
+    
+    if (targetId) {
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        
+        // Prevent default anchor behavior
+        e.preventDefault();
+      }
+    }
   };
 
   const NavLinks = () => (
     <>
-      <Link 
-        to="/#about" 
-        onClick={closeSidebar}
+      <a
+        href="#about"
+        onClick={handleNavigation}
         className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
       >
         About Me
-      </Link>
-      <Link 
-        to="/#skills" 
-        onClick={closeSidebar}
+      </a>
+      <a
+        href="#skills"
+        onClick={handleNavigation}
         className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
       >
         My Skills
-      </Link>
-      <Link 
-        to="/#projects" 
-        onClick={closeSidebar}
+      </a>
+      <a
+        href="#projects"
+        onClick={handleNavigation}
         className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
       >
         My Projects
-      </Link>
-      <Link 
-        to="/#contact" 
-        onClick={closeSidebar}
+      </a>
+      <a
+        href="#contact"
+        onClick={handleNavigation}
         className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
       >
         My Contact
-      </Link>
+      </a>
     </>
   );
 
   return (
-    <Router>
+    <>
       {/* Desktop Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-30 hidden sm:flex flex-col sm:flex-row justify-between items-center p-6 bg-amber-500 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl">
         <div className="flex flex-col sm:flex-row sm:space-x-8 sm:mb-0">
-          <Link 
-            to="/#about"
+          <a
+            href="#about"
+            onClick={handleNavigation}
             className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
           >
             About Me
-          </Link>
-          <Link 
-            to="/#skills"
+          </a>
+          <a
+            href="#skills"
+            onClick={handleNavigation}
             className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
           >
             My Skills
-          </Link>
+          </a>
         </div>
         
-        <Link 
-          to="/#about"
+        <a
+          href="#about"
+          onClick={handleNavigation}
           className="text-xl sm:text-3xl font-bold text-white mb-2 sm:mb-0 font-logo transition duration-300 transform hover:scale-105"
         >
           MAHESH DIVATE
-        </Link>
+        </a>
         
         <div className="flex flex-col sm:flex-row sm:space-x-8">
-          <Link 
-            to="/#projects"
+          <a
+            href="#projects"
+            onClick={handleNavigation}
             className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
           >
             My Projects
-          </Link>
-          <Link 
-            to="/#contact"
+          </a>
+          <a
+            href="#contact"
+            onClick={handleNavigation}
             className="text-lg sm:text-xl text-white hover:text-amber-200 transition duration-200 transform hover:scale-105 font-semibold"
           >
             My Contact
-          </Link>
+          </a>
         </div>
       </nav>
 
       {/* Mobile Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-30 sm:hidden bg-amber-500 p-4 flex justify-between items-center">
-        <Link 
-          to="/#about"
+        <a
+          href="#about"
+          onClick={handleNavigation}
           className="text-xl font-bold text-white font-logo"
         >
           MAHESH DIVATE
-        </Link>
+        </a>
         <button 
           onClick={toggleSidebar}
           className="text-white focus:outline-none"
@@ -108,7 +128,7 @@ export default function Header() {
       {isSidebarOpen && (
         <div 
           className="fixed top-0 left-0 w-full h-full bg-black/50 z-40"
-          onClick={closeSidebar}
+          onClick={toggleSidebar}
         >
           <div 
             className="fixed top-0 right-0 w-64 h-full bg-amber-500 shadow-lg p-6 space-y-4"
@@ -120,6 +140,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </Router>
+    </>
   );
 }
