@@ -70,22 +70,22 @@ const MyProjects: React.FC = () => {
   return (
     <div id="projects" className="bg-gray-50 py-12 bg-gray-900">
       <h2 className="text-5xl font-extrabold text-amber-500 mb-4 text-center">My Projects</h2>
-      <div className="flex flex-col items-center justify-start min-h-screen p-8 bg-gray-900 shadow-lg rounded-lg mx-4">
-
-        <div className="w-full rounded-lg p-8 mb-8 bg-gray-900">
+      <div className="flex flex-col items-center justify-start min-h-screen p-6 bg-gray-900 shadow-lg rounded-lg mx-4">
+        
+        <div className="w-full  rounded-lg p-8 mb-8 bg-gray-900">
           <div className="mb-4">
+            <h2 className="text-3xl font-semibold text-blue-600"></h2>
             <p className="text-gray-600 mt-2">Explore the following projects I built </p>
           </div>
 
-          {/* Container for Horizontal Scroll with Dynamic Width */}
-          <div className="overflow-x-auto py-4 scroll-smooth snap-x snap-mandatory w-full max-w-full lg:max-w-[1200px] xl:max-w-[1400px] mx-auto">
+          <div className="flex overflow-x-auto space-x-8 py-4 snap-x snap-mandatory">
             {projectData.map((project, index) => (
               <div 
                 key={index} 
-                className="flex-none w-80 border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-500 hover:scale-105 snap-center cursor-pointer"
+                className="flex-none w-80 border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-300 hover:scale-105 snap-center cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
-                <div className="flex flex-col items-center justify-center h-full p-4">
+                <div className="flex flex-col items-center justify-center w-full h-full p-4">
                   <Marquee className="h-36 w-full overflow-hidden" singleitem="true">
                     {project.logos.map((logo, idx) => (
                       <img key={idx} src={logo.img} alt={logo.name} className="h-20 w-auto mx-auto" />
