@@ -70,15 +70,15 @@ const MyProjects: React.FC = () => {
   return (
     <div id="projects" className="bg-gray-50 py-12 bg-gray-900">
       <h2 className="text-5xl font-extrabold text-amber-500 mb-4 text-center">My Projects</h2>
-      <div className="flex flex-col items-center justify-start min-h-screen p-8 bg-gray-900 shadow-lg rounded-lg mx-4">
+      <div className="flex flex-col items-center justify-start min-h-screen min-w-full  bg-gray-900 shadow-lg rounded-lg mx-auto">
         
-        <div className="w-full  rounded-lg p-8 mb-8 bg-gray-900">
+        <div className="w-full rounded-lg p-8 mb-8 bg-gray-900">
           <div className="mb-4">
             <h2 className="text-3xl font-semibold text-blue-600"></h2>
             <p className="text-gray-600 mt-2">Explore the following projects I built </p>
           </div>
 
-          <div className="flex overflow-x-auto space-x-8 py-4 snap-x snap-mandatory">
+          <div className="flex overflow-x-auto space-x-6 py-4 snap-x snap-mandatory">
             {projectData.map((project, index) => (
               <div 
                 key={index} 
