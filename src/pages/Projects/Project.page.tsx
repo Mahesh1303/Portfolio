@@ -78,7 +78,7 @@ const MyProjects: React.FC = () => {
             <p className="text-gray-600 mt-2">Explore the following projects I built </p>
           </div>
 
-          <div className="flex overflow-x-auto space-x-8 py-4 snap-x snap-mandatory">
+          <div className="flex overflow-x-auto space-x-8 py-4 snap-x snap-mandatory min-w-full">
             {projectData.map((project, index) => (
               <div 
                 key={index} 
