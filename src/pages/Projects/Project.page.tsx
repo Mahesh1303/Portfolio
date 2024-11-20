@@ -82,7 +82,7 @@ const MyProjects: React.FC = () => {
             {projectData.map((project, index) => (
               <div 
                 key={index} 
-                className="flex-none w-80 border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-300 hover:scale-105 snap-center cursor-pointer"
+                className="flex-none w-[320px] min-w-[320px] border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-300 hover:scale-105 snap-center cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="flex flex-col items-center justify-center h-full p-4">

@@ -114,7 +114,7 @@ const Myskills = () => {
       <h2 className="text-5xl font-extrabold text-amber-500 mb-8 text-center">My Skills</h2>
       
       {/* Centered About Me Section */}
-      <div className="flex justify-center mb-4 h-1/4 w-1/4 mx-auto">
+      <div className="flex justify-center mb-4 h-2/4 w-2/4 mx-auto">
         <IconCloud iconSlugs={slugs} />
       </div>
       
