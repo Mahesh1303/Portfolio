@@ -78,12 +78,12 @@ const MyProjects: React.FC = () => {
             <p className="text-gray-600 mt-2">Explore the following projects I built </p>
           </div>
 
-          {/* Adjusted container width for responsiveness */}
-          <div className="flex overflow-x-auto space-x-8 py-4 snap-x snap-mandatory w-full max-w-screen-lg mx-auto">
+          {/* Adjusted container for better responsiveness on mobile */}
+          <div className="flex overflow-x-auto space-x-4 sm:space-x-6 md:space-x-8 py-4 snap-x snap-mandatory w-full max-w-full mx-auto">
             {projectData.map((project, index) => (
               <div 
                 key={index} 
-                className="flex-none w-80 sm:w-96 md:w-[400px] lg:w-[450px] border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-300 hover:scale-105 snap-center cursor-pointer"
+                className="flex-none w-[80%] sm:w-[90%] md:w-80 lg:w-96 border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-300 hover:scale-105 snap-center cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="flex flex-col items-center justify-center h-full p-4">
