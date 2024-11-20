@@ -78,8 +78,8 @@ const MyProjects: React.FC = () => {
             <p className="text-gray-600 mt-2">Explore the following projects I built </p>
           </div>
 
-          {/* Increase width of the horizontal scroll container */}
-          <div className="flex overflow-x-auto space-x-8 py-4 snap-x snap-mandatory w-[120%]"> {/* Here I increased the width */}
+          {/* Adjusted container width for responsiveness */}
+          <div className="flex overflow-x-auto space-x-8 py-4 snap-x snap-mandatory w-full max-w-screen-lg mx-auto">
             {projectData.map((project, index) => (
               <div 
                 key={index} 
