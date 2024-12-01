@@ -70,7 +70,7 @@ const MyProjects: React.FC = () => {
   return (
     <div id="projects" className="bg-gray-50 py-12 bg-gray-900">
       <h2 className="text-5xl font-extrabold text-amber-500 mb-4 text-center">My Projects</h2>
-      <div className="flex flex-col items-center justify-start min-h-screen min-w-full  bg-gray-900 shadow-lg rounded-lg mx-auto">
+      <div className="flex flex-col items-center justify-start min-h-screen min-w-full ml-4 bg-gray-900 shadow-lg rounded-lg mx-4">
         
         <div className="w-full rounded-lg p-8 mb-8 bg-gray-900">
           <div className="mb-4">
