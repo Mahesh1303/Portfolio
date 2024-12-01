@@ -82,9 +82,7 @@ const Myskills = () => {
               bg-gradient-to-r from-blue-500 to-purple-600 mb-4">
               Tech Arsenal
             </h1>
-            <p className="text-xl text-gray-300">
-              A dynamic showcase of cutting-edge technologies and skills
-            </p>
+           
           </div>
 
           {/* Skills Categories */}
