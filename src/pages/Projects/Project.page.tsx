@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import Marquee from '@/Components/ui/marquee';
-import DialogBox from '@/Components/PgComponets/DialogBox'; 
+import { motion, AnimatePresence } from 'framer-motion';
+import EnhancedMarquee from './EnhancedMarquee';
+import Button from './Button';
+import { Github, ExternalLink, X } from 'lucide-react';
 
 interface Logo {
   name: string;
@@ -18,110 +20,148 @@ interface Project {
 const projectData: Project[] = [
   {
     title: "Gym Fit",
-    description: "An innovative approach to Project One, highlighting key technologies and benefits.",
+    description: "An innovative approach to fitness tracking, combining AI-powered workout recommendations with social features to keep users motivated and engaged in their fitness journey.",
     logos: [
-      { name: "Microsoft", img: "/gym1.png" },
-      { name: "Apple", img: "/gym2.png" },
-      { name: "Apple", img: "/gym3.png" },
+      { name: "React", img: "/gym1.png" },
+      { name: "Node.js", img: "/gym2.png" },
+      { name: "MongoDB", img: "/gym3.png" },
     ],
     githubUrl: "#",
     liveUrl: "#",
   },
   {
     title: "Vote Ease",
-    description: "A comprehensive solution for Project Two, showcasing unique features and use cases.",
+    description: "A comprehensive digital voting solution that ensures secure, transparent, and accessible elections. Features include blockchain-based vote recording, real-time result tracking, and multi-factor authentication for voters.",
     logos: [
-      { name: "Google", img: "/VOTE1.png" },
-      { name: "Facebook", img: "/VOTE2.png" },
-      { name: "Facebook", img: "/VOTE3.png" },
-      { name: "Facebook", img: "/VOTE4.png" },
+      { name: "Vue.js", img: "/VOTE1.png" },
+      { name: "Express", img: "/VOTE2.png" },
+      { name: "PostgreSQL", img: "/VOTE3.png" },
+      { name: "Blockchain", img: "/VOTE4.png" },
     ],
     githubUrl: "#",
     liveUrl: "#",
   },
   {
     title: "Abhivyakta",
-    description: "Developed a landing page for the Abhivyakta website, which is an Indian version of the Nagish Application.",
+    description: "A localized version of the Nagish application, Abhivyakta is designed to improve digital accessibility for Indian users. It features text-to-speech, voice commands, and a user interface optimized for various Indian languages and dialects.",
     logos: [
-      { name: "LinkedIn", img: "/Abhi1.png" },
-      { name: "Twitter", img: "/Abhi2.png" },
-      { name: "Twitter", img: "/Abhi3.png" }
+      { name: "Next.js", img: "/Abhi1.png" },
+      { name: "TensorFlow.js", img: "/Abhi2.png" },
+      { name: "Firebase", img: "/Abhi3.png" }
     ],
     githubUrl: "#",
     liveUrl: "https://abhivyakta.netlify.app/",
   }
 ];
 
-const truncateDescription = (text: string, maxLength: number = 100): string => {
-  return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
-};
-
 const MyProjects: React.FC = () => {
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
 
-  const handleProjectClick = (project: Project) => {
-    setCurrentProject(project);
-  };
-
-  const closeModal = () => {
-    setCurrentProject(null);
-  };
-
   return (
-    <div id="projects" className="bg-gray-50 py-12 bg-gray-900">
-      <h2 className="text-5xl font-extrabold text-amber-500 mb-4 text-center">My Projects</h2>
-      <div className="flex flex-col items-center justify-start min-h-screen min-w-full ml-4 bg-gray-900 shadow-lg rounded-lg mx-4">
+    <section id="projects" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="container mx-auto px-4">
+        <motion.h2 
+          className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-12 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          My Projects
+        </motion.h2>
         
-        <div className="w-full rounded-lg p-8 mb-8 bg-gray-900">
-          <div className="mb-4">
-            <h2 className="text-3xl font-semibold text-blue-600"></h2>
-            <p className="text-gray-600 mt-2">Explore the following projects I built </p>
-          </div>
-
-          <div className="flex overflow-x-auto space-x-6 py-4 snap-x snap-mandatory">
-            {projectData.map((project, index) => (
-              <div 
-                key={index} 
-                className="flex-none w-80 border border-gray-300 rounded-lg shadow-md bg-blue-100 transform transition-transform duration-300 hover:scale-105 snap-center cursor-pointer"
-                onClick={() => handleProjectClick(project)}
-              >
-                <div className="flex flex-col items-center justify-center h-full w-full p-4">
-                  <Marquee className="h-36 w-full overflow-hidden" singleitem="true">
-                    {project.logos.map((logo, idx) => (
-                      <img key={idx} src={logo.img} alt={logo.name} className="h-20 w-auto mx-auto" />
-                    ))}
-                  </Marquee>
-                  <h2 className="text-2xl font-semibold text-center text-blue-600 mt-4">{project.title}</h2>
-                  <p className="text-center text-gray-600 mt-2">{truncateDescription(project.description)}</p>
-                  <div className="mt-4 flex space-x-2">
-                    <a 
-                      href={project.githubUrl} 
-                      className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700 transition"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectData.map((project, index) => (
+            <motion.div 
+              key={index}
+              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="h-48 bg-gray-700 p-4">
+                <EnhancedMarquee speed={10}>
+                  {project.logos.map((logo, idx) => (
+                    <img key={idx} src={logo.img} alt={logo.name} className="h-40 w-auto mx-4 inline-block" />
+                  ))}
+                </EnhancedMarquee>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-white mb-2">{project.title}</h3>
+                <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
+                <div className="flex justify-between items-center">
+                  <Button variant="outline" onClick={() => setCurrentProject(project)}>
+                    Learn More
+                  </Button>
+                  <div className="flex space-x-2">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Button size="icon" variant="ghost">
+                        <Github className="h-5 w-5" />
+                      </Button>
                     </a>
-                    <a 
-                      href={project.liveUrl} 
-                      className="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-700 transition"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      Live Demo
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <Button size="icon" variant="ghost">
+                        <ExternalLink className="h-5 w-5" />
+                      </Button>
                     </a>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
-
-        {currentProject && <DialogBox project={currentProject} onClose={closeModal} />}
       </div>
-      <div className="hidden md:block h-1 w-2/3 bg-amber-400 mb-4 rounded-lg mt-40 mx-auto"></div>
-    </div>
+
+      <AnimatePresence>
+        {currentProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setCurrentProject(null)}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="bg-gray-800 rounded-lg max-w-2xl w-full p-6 relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-2 right-2"
+                onClick={() => setCurrentProject(null)}
+              >
+                <X className="h-5 w-5" />
+              </Button>
+              <h3 className="text-3xl font-bold text-white mb-4">{currentProject.title}</h3>
+              <EnhancedMarquee speed={15}>
+                {currentProject.logos.map((logo, idx) => (
+                  <img key={idx} src={logo.img} alt={logo.name} className="h-24 w-auto mx-4 inline-block" />
+                ))}
+              </EnhancedMarquee>
+              <p className="text-gray-300 my-4">{currentProject.description}</p>
+              <div className="flex justify-end space-x-4 mt-6">
+                <Button variant="outline" asChild>
+                  <a href={currentProject.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" /> GitHub
+                  </a>
+                </Button>
+                <Button asChild>
+                  <a href={currentProject.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 };
 
 export default MyProjects;
+

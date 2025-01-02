@@ -2,13 +2,11 @@ import SocialIcons from "@/Components/PgComponets/Dockcomp";
 
 export default function About() {
   return (
-    <section id="about" className="mt-10 lg:mt-16 pt-16 lg:pt-20">
+    <section id="about" className="mt-10 lg:mt-2 pt-4  lg:pt-2">
       <div className="relative min-h-screen">
         <section className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-4 sm:px-6 sm:mt-14 lg:px-8 xl:px-16 bg-gray-900">
-          {/* Updated gradient background */}
           <div className="bg-gray-700 rounded-lg"></div>
 
-          {/* Text Content Section */}
           <div className="flex-1 z-10 text-center md:text-left p-4 sm:p-6 lg:p-8 xl:p-10 space-y-8 lg:space-y-12 max-w-2xl mx-auto md:mx-0">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-500 mb-6 lg:mb-8 text-center md:text-left">
               About Me
@@ -43,7 +41,6 @@ export default function About() {
             <div className="hidden md:block h-1 w-full bg-amber-400 my-6 lg:my-8 rounded-lg"></div>
           </div>
 
-          {/* Image Section */}
           <div className="flex-1 flex justify-center items-center p-4 sm:p-6 lg:p-8 xl:p-10 z-10 mt-8 md:mt-0">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-88 md:h-88 lg:w-96 lg:h-96 xl:w-104 xl:h-104 transition-transform duration-300 hover:scale-110">
               <img
@@ -55,7 +52,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Social Icons */}
         <div className="fixed bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-50">
           <SocialIcons />
         </div>
