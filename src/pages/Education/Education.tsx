@@ -16,7 +16,7 @@ const Education=()=> {
                 <h4 className="text-3xl font-semibold text-white">
                   Secondary Education
                 </h4>
-                <p className="text-gray-700 text-lg mt-1 text-white">CBSE, Pune</p>
+                <p className=" text-lg mt-1 text-white">CBSE, Pune</p>
                 <p className="text-gray-500 text-base italic mt-1">
                   Completed
                 </p>
@@ -26,7 +26,7 @@ const Education=()=> {
                 <h4 className="text-3xl font-semibold">
                   Bachelor of Computer Engineering
                 </h4>
-                <p className="text-gray-700 text-lg mt-1 text-white">
+                <p className=" text-lg mt-1 text-white">
                   Savitribai Phule Pune University
                 </p>
                 <p className="text-gray-500 text-base italic mt-1">
