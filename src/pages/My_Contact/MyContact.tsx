@@ -12,7 +12,7 @@ export function MyContact() {
     { 
       icon: Linkedin, 
       label: 'LinkedIn', 
-      href: 'https://www.linkedin.com/in/yourprofile',
+      href: 'https://linkedin.com/in/mahesh-divate',
       color: 'text-blue-600'
     },
     { 
