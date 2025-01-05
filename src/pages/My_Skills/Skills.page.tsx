@@ -74,14 +74,8 @@ const Myskills = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Icon Cloud */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center"
-          >
+         
             <IconCloud iconSlugs={iconSlugs} />
-          </motion.div>
 
           {/* Skills Grid */}
           <div className="grid sm:grid-cols-2 gap-6">
