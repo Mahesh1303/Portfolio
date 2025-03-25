@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useTransform, useScroll } from 'framer-motion'
-import { Code, Cpu, Database, Server, Zap, Rocket } from 'lucide-react'
+import { Code, Cpu, Database, Server,  } from 'lucide-react'
 import IconCloud from "@/Components/ui/icon-cloud"
 import TypingAnimation from "@/Components/ui/typing-animation"
 
