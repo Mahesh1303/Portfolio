@@ -29,27 +29,28 @@ const projectData: Project[] = [
     liveUrl: "#",
   },
   {
-    title: "Vote Ease",
-    description: "A comprehensive digital voting solution that ensures secure, transparent, and accessible elections. Features include blockchain-based vote recording, real-time result tracking, and multi-factor authentication for voters.",
+    title: "Notetube",
+    description: "Notetube is a unique platform that lets you watch YouTube videos while taking side-by-side notes. With seamless integration of YouTube APIs, you can jot down important points, save your notes, and download them as a PDF for future reference. Powered by Redux, Notetube offers a smooth, organized way to enhance your video learning experience!",
     logos: [
-      { name: "Vue.js", img: "/VOTE1.png" },
-      { name: "Express", img: "/VOTE2.png" },
-      { name: "PostgreSQL", img: "/VOTE3.png" },
-      { name: "Blockchain", img: "/VOTE4.png" },
+      { name: "Vue.js", img: "/yt1.png" },
+      { name: "Express", img: "/yt2.png" },
+      { name: "PostgreSQL", img: "/yt3.png" },
     ],
     githubUrl: "#",
     liveUrl: "#",
   },
   {
-    title: "Abhivyakta",
-    description: "A localized version of the Nagish application, Abhivyakta is designed to improve digital accessibility for Indian users. It features text-to-speech, voice commands, and a user interface optimized for various Indian languages and dialects.",
+    title: "Job Portal",
+    description: "Welcome to [Your Job Portal Name], a dynamic platform designed to connect job seekers with their dream opportunities. Easily browse job listings, apply for positions, and track your application status—all in one place. With advanced search filters and a user-friendly interface, finding the perfect job has never been easier. Start your career journey with us today!",
     logos: [
-      { name: "Next.js", img: "/Abhi1.png" },
-      { name: "TensorFlow.js", img: "/Abhi2.png" },
-      { name: "Firebase", img: "/Abhi3.png" }
+      { name: "Next.js", img: "/jb1.png" },
+      { name: "TensorFlow.js", img: "/jb2.png" },
+      { name: "Firebase", img: "/jb3.png" },
+      { name: "Firebase", img: "/jb4.png" },
+      { name: "Firebase", img: "/jb5.png" }
     ],
     githubUrl: "#",
-    liveUrl: "https://abhivyakta.netlify.app/",
+    liveUrl: "#",
   }
 ];
 
