@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { Code, Server, Database, Cpu, Download, User, Terminal, CpuIcon, Code2, Sparkles, Award, Briefcase, Clock } from 'lucide-react'
+import { Code, Server, Database, Cpu, Download, User,  CpuIcon, Code2, Sparkles, Award, Briefcase, Clock } from 'lucide-react'
 import SocialIcons from '@/Components/PgComponets/Dockcomp'
 
 const TypingAnimation = ({ text, duration = 50, delay = 0, className = '' }: { text: string; duration?: number; delay?: number; className?: string }) => {
