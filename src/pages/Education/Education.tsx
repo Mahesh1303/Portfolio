@@ -19,7 +19,7 @@ const Education = () => {
             </h4>
             <p className="text-lg text-gray-600 mb-1">CBSE, Pune</p>
             <p className="text-amber-600 text-base font-medium mt-4">
-              Completed • 2020
+              Completed • 2021
             </p>
           </div>
 
