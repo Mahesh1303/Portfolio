@@ -41,7 +41,7 @@ const projectData: Project[] = [
   },
   {
     title: "Job Portal",
-    description: "Welcome to [Your Job Portal Name], a dynamic platform designed to connect job seekers with their dream opportunities. Easily browse job listings, apply for positions, and track your application status—all in one place. With advanced search filters and a user-friendly interface, finding the perfect job has never been easier. Start your career journey with us today!",
+    description: "Welcome to my Job-Portal , a dynamic platform designed to connect job seekers with their dream opportunities. Easily browse job listings, apply for positions, and track your application status—all in one place. With advanced search filters and a user-friendly interface, finding the perfect job has never been easier. Start your career journey with us today!",
     logos: [
       { name: "Next.js", img: "/jb1.png" },
       { name: "TensorFlow.js", img: "/jb2.png" },
