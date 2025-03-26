@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { ChevronDown, User, Code, Mail, Home, Star } from 'lucide-react'
+import { ChevronDown, User, Code, Mail,  Star } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
