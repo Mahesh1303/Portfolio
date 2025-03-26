@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import EnhancedMarquee from './EnhancedMarquee';
+import { Code2, Cpu, GitBranch, Zap } from 'lucide-react';
 
 interface Logo {
   name: string;
@@ -71,6 +72,199 @@ const CloseIcon = ({ className = "" }) => (
   </svg>
 );
 
+const ProjectCard = ({ 
+  project, 
+  index,
+  isHovered,
+  onHoverStart,
+  onHoverEnd,
+  onClick
+}: {
+  project: Project;
+  index: number;
+  isHovered: boolean;
+  onHoverStart: () => void;
+  onHoverEnd: () => void;
+  onClick: () => void;
+}) => {
+  return (
+    <motion.div 
+      className="relative group"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onHoverStart={onHoverStart}
+      onHoverEnd={onHoverEnd}
+    >
+      <motion.div 
+        className="absolute inset-0 bg-white rounded-3xl shadow-xl transition-all duration-300"
+        animate={{
+          scale: isHovered ? 1.03 : 1,
+          boxShadow: isHovered 
+            ? "0 25px 50px -12px rgba(96, 75, 74, 0.25)" 
+            : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+      />
+      
+      <div className="relative h-full flex flex-col p-6 z-10">
+        <motion.div
+          className="h-40 mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
+          animate={{
+            height: isHovered ? 100 : 160
+          }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <EnhancedMarquee speed={10}>
+            {project.logos.map((logo, idx) => (
+              <img 
+                key={idx} 
+                src={logo.img} 
+                alt={logo.name} 
+                className={`h-full w-auto mx-4 inline-block transition-transform duration-500 
+                  ${isHovered ? 'scale-110' : 'scale-100'}`}
+              />
+            ))}
+          </EnhancedMarquee>
+        </motion.div>
+        
+        <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
+        
+        <motion.div
+          className="overflow-hidden"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{
+            height: isHovered ? "auto" : 0,
+            opacity: isHovered ? 1 : 0
+          }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <p className="text-gray-600 mb-6">{project.description}</p>
+        </motion.div>
+        
+        <div className="mt-auto flex items-center justify-between">
+          <div className="flex gap-3">
+            <motion.a 
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-[#f55d56] transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <GitHubIcon />
+            </motion.a>
+            <motion.a 
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-[#f55d56] transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ExternalLinkIcon />
+            </motion.a>
+          </div>
+          
+          <motion.button
+            onClick={onClick}
+            className="px-4 py-2 bg-gradient-to-r from-[#fbb9b6] to-[#f55d56] text-white rounded-full text-sm font-medium shadow-md"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 5px 15px -3px rgba(245, 93, 86, 0.4)"
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Learn More
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const ProjectModal = ({ 
+  project, 
+  onClose 
+}: {
+  project: Project;
+  onClose: () => void;
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ type: "spring", damping: 25 }}
+        className="bg-white rounded-3xl max-w-2xl w-full p-8 relative shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <motion.button
+          className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors"
+          onClick={onClose}
+          whileHover={{ rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <CloseIcon className="text-gray-500" />
+        </motion.button>
+        
+        <div className="space-y-6">
+          <h3 className="text-3xl font-bold text-gray-800">{project.title}</h3>
+          
+          <div className="h-48 rounded-xl overflow-hidden bg-gray-100">
+            <EnhancedMarquee speed={15}>
+              {project.logos.map((logo, idx) => (
+                <img 
+                  key={idx} 
+                  src={logo.img} 
+                  alt={logo.name} 
+                  className="h-full w-auto mx-8 inline-block" 
+                />
+              ))}
+            </EnhancedMarquee>
+          </div>
+          
+          <p className="text-gray-600 text-lg leading-relaxed">
+            {project.description}
+          </p>
+          
+          <div className="flex justify-end gap-4 pt-4">
+            <motion.a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <GitHubIcon className="w-5 h-5" />
+              View Code
+            </motion.a>
+            <motion.a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#fbb9b6] to-[#f55d56] text-white rounded-full font-medium hover:opacity-90 transition-opacity"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <ExternalLinkIcon className="w-5 h-5" />
+              Live Demo
+            </motion.a>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const MyProjects: React.FC = () => {
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -78,192 +272,47 @@ const MyProjects: React.FC = () => {
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f55d56] to-[#f7931e] mb-4">
-            My Projects
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="inline-flex items-center justify-center mb-4">
+            <Zap className="w-8 h-8 text-amber-500 mr-3 animate-pulse" />
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f55d56] to-[#f7931e]">
+              My Projects
+            </h2>
+            <Cpu className="w-8 h-8 text-amber-600 ml-3 animate-spin-slow" />
+          </div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto flex items-center justify-center">
+            <GitBranch className="w-5 h-5 mr-2 text-gray-400" />
             Here are some of my recent works. Hover to see details or click to learn more.
+            <Code2 className="w-5 h-5 ml-2 text-gray-400" />
           </p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectData.map((project, index) => (
-            <motion.div 
+            <ProjectCard
               key={index}
-              className="relative group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              project={project}
+              index={index}
+              isHovered={hoveredProject === project.title}
               onHoverStart={() => setHoveredProject(project.title)}
               onHoverEnd={() => setHoveredProject(null)}
-            >
-              <motion.div 
-                className="absolute inset-0 bg-white rounded-3xl shadow-xl transition-all duration-300"
-                animate={{
-                  scale: hoveredProject === project.title ? 1.03 : 1,
-                  boxShadow: hoveredProject === project.title 
-                    ? "0 25px 50px -12px rgba(96, 75, 74, 0.25)" 
-                    : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              
-              <div className="relative h-full flex flex-col p-6 z-10">
-                <motion.div
-                  className="h-40 mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
-                  animate={{
-                    height: hoveredProject === project.title ? 100 : 160
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <EnhancedMarquee speed={10}>
-                    {project.logos.map((logo, idx) => (
-                      <img 
-                        key={idx} 
-                        src={logo.img} 
-                        alt={logo.name} 
-                        className={`h-full w-auto mx-4 inline-block transition-transform duration-500 
-                          ${hoveredProject === project.title ? 'scale-110' : 'scale-100'}`}
-                      />
-                    ))}
-                  </EnhancedMarquee>
-                </motion.div>
-                
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                
-                <motion.div
-                  className="overflow-hidden"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{
-                    height: hoveredProject === project.title ? "auto" : 0,
-                    opacity: hoveredProject === project.title ? 1 : 0
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="text-gray-600 mb-6">{project.description}</p>
-                </motion.div>
-                
-                <div className="mt-auto flex items-center justify-between">
-                  <div className="flex gap-3">
-                    <motion.a 
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-[#f55d56] transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <GitHubIcon />
-                    </motion.a>
-                    <motion.a 
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-[#f55d56] transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLinkIcon />
-                    </motion.a>
-                  </div>
-                  
-                  <motion.button
-                    onClick={() => setCurrentProject(project)}
-                    className="px-4 py-2 bg-gradient-to-r from-[#fbb9b6] to-[#f55d56] text-white rounded-full text-sm font-medium shadow-md"
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 5px 15px -3px rgba(245, 93, 86, 0.4)"
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Learn More
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
+              onClick={() => setCurrentProject(project)}
+            />
           ))}
         </div>
       </div>
 
       <AnimatePresence>
         {currentProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setCurrentProject(null)}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25 }}
-              className="bg-white rounded-3xl max-w-2xl w-full p-8 relative shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <motion.button
-                className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors"
-                onClick={() => setCurrentProject(null)}
-                whileHover={{ rotate: 90 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <CloseIcon className="text-gray-500" />
-              </motion.button>
-              
-              <div className="space-y-6">
-                <h3 className="text-3xl font-bold text-gray-800">{currentProject.title}</h3>
-                
-                <div className="h-48 rounded-xl overflow-hidden bg-gray-100">
-                  <EnhancedMarquee speed={15} >
-                    {currentProject.logos.map((logo, idx) => (
-                      <img 
-                        key={idx} 
-                        src={logo.img} 
-                        alt={logo.name} 
-                        className="h-full w-auto mx-8 inline-block" 
-                      />
-                    ))}
-                  </EnhancedMarquee>
-                </div>
-                
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  {currentProject.description}
-                </p>
-                
-                <div className="flex justify-end gap-4 pt-4">
-                  <motion.a
-                    href={currentProject.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <GitHubIcon className="w-5 h-5" />
-                    View Code
-                  </motion.a>
-                  <motion.a
-                    href={currentProject.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#fbb9b6] to-[#f55d56] text-white rounded-full font-medium hover:opacity-90 transition-opacity"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <ExternalLinkIcon className="w-5 h-5" />
-                    Live Demo
-                  </motion.a>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+          <ProjectModal 
+            project={currentProject} 
+            onClose={() => setCurrentProject(null)} 
+          />
         )}
       </AnimatePresence>
     </section>

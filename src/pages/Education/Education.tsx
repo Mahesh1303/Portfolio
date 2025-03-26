@@ -42,7 +42,7 @@ const Education = () => {
               Savitribai Phule Pune University
             </p>
             <p className="text-amber-600 text-base font-medium mt-4">
-              In Progress • Expected 2024
+              In Progress • Expected 2026
             </p>
           </div>
         </div>

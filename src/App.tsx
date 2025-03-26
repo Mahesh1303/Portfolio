@@ -7,7 +7,7 @@ import Education from "./pages/Education/Education";
 
 export function App() {
   return (
-    <div className="bg-gray-900" >
+    <div   >
       <Header />
       <About />
       <Myskills />
